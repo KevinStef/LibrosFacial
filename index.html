@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Identificación de Rostros</title>
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h4>Preparación de Datos</h4>
+              <h5>Grupos</h5>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_create_person_group">
+                Crear Grupo
+              </button>
+              <div class="modal fade" id="modal_create_person_group" tabindex="-1"
+              role="dialog"  aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Registro de Grupo</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="form-label">ID</label>
+                            <input type="text" class="form-control input-person-group-id">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" maxlength="128" class="form-control input-person-group-name">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" data-default="Guardar Cambios" class="btn btn-primary btn-add-group">Guardar Cambios</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Opciones</th>
+                  </tr>
+                </thead>
+                <tbody class="person-group-list">
+
+                </tbody>
+              </table>
+              <br>
+              <h5>Personas</h5>
+              <button type="button"  data-default="Registrar Persona" class="btn btn-primary"
+               data-toggle="modal" data-target="#modal_create_person">
+                Registrar Persona
+              </button>
+              <div class="modal fade" id="modal_create_person" tabindex="-1"
+              role="dialog"  aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Registro de Persona</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="form-label">Nombres</label>
+                            <input type="text" maxlength="128" class="form-control input-person-name">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="form-label">Correo</label>
+                            <input type="text" maxlength="128" class="form-control input-person-email">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="form-label">Código Estudiantil</label>
+                            <input type="text" maxlength="128" class="form-control input-person-code">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" data-default="Guardar Cambios" class="btn btn-primary btn-add-person">Guardar Cambios</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <table  class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombres</th>
+                    <th>Datos</th>
+                    <th>Opciones</th>
+                  </tr>
+                </thead>
+                <tbody class="person-group-person-list">
+
+                </tbody>
+              </table>
+              <br>
+              <h5>Fotos de <b class="person-name"></b></h5>
+              <button type="button"  data-default="Agregar Foto" class="btn btn-primary"
+               data-toggle="modal" data-target="#modal_add_foto">
+                Agregar Foto
+              </button>
+              <div class="modal fade" id="modal_add_foto" tabindex="-1"
+              role="dialog"  aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Registro de Foto</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="form-label">Seleccionar Foto</label>
+                            <input type="file" class="form-control input-face-image">
+                            <small>jpeg, png, gif, bpm</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" data-default="Guardar Cambios" class="btn btn-primary btn-add-face">Guardar Cambios</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <table  class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Opciones</th>
+                  </tr>
+                </thead>
+                <tbody class="person-face-list">
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h4>Reconocimiento Facial</h4>
+          <video height="300" width="400" id="video" controls autoplay></video>
+          <canvas class="hidden"  id="myCanvas" height="300" width="400"></canvas>
+          <br>
+          <button type="button" name="button" class="btn btn-primary btn-sm btn-start-rec">Iniciar</button>
+          <button type="button" name="button" class="btn btn-danger btn-sm btn-stop-rec">Detener</button>
+          <p class="person-identified">Presione iniciar para comemzar con el Reconocimiento</p>
+        </div>
+      </div>
+    </div>
+    <script src="resources/js/libs/jquery-3.2.1.min.js"></script>
+    <script src="resources/js/libs/bootstrap.min.js"></script>
+    <script src="resources/js/api.js" charset="utf-8"></script>
+    <script src="resources/js/main.js" charset="utf-8"></script>
+  </body>
+</html>
